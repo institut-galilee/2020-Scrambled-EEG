@@ -10,7 +10,7 @@ void setup() {
 
 void loop() {
   // Lis le flux de donnée venant de l'entrée analogique, et l'envoit vers le module bluetooth qui l'envoit vers le téléphone
-  Serial.println(analogRead(analogPin)); 
+  Serial.println(analogWrite(analogPin)); 
   
   // Sleep(), potentiellement pas besoin de récolter les donnée de l'EEG continuellement, à tester
 }

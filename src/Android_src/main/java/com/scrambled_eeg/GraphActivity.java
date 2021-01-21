@@ -1,5 +1,5 @@
-/**
- *
+/** GraphActivity
+ *  Activité affichant les données en temps réel
  */
 
 package com.scrambled_eeg;
@@ -21,6 +21,7 @@ import java.util.UUID;
 
 public class GraphActivity extends AppCompatActivity implements Runnable {
 
+    // Liste des différents bouttons
     private Button back;
     private Button plus;
     private Button minus;
@@ -51,16 +52,18 @@ public class GraphActivity extends AppCompatActivity implements Runnable {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_graph);
 
+        // Initialisation des Views
         this.back = (Button) findViewById(R.id.back);
         this.plus = (Button) findViewById(R.id.plus);
         this.minus = (Button) findViewById(R.id.minus);
         this.p30 = (Button) findViewById(R.id.add30min);
         this.connect = (Button) findViewById(R.id.connect);
         this.state = (TextView) findViewById(R.id.state);
-        data = (TextView) findViewById(R.id.data);
+        this.data = (TextView) findViewById(R.id.data);
 
         fw = new FileWriter("Sleep_" + new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault()).toString()+ ".eeg");
 
+        // Définition de ce que font les bouttons
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +72,6 @@ public class GraphActivity extends AppCompatActivity implements Runnable {
                 finish();
             }
         });
-
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,6 +151,7 @@ public class GraphActivity extends AppCompatActivity implements Runnable {
 
         thread = new Thread(this);
 
+        // lancement de la loop
         thread.run();
 
 
@@ -171,7 +174,7 @@ public class GraphActivity extends AppCompatActivity implements Runnable {
 
     /** Thread
      *
-     *
+     *  Loop Principal, active la liaison bluetooth et enregistre la data échangée
      *
      * */
     @Override
@@ -200,6 +203,7 @@ public class GraphActivity extends AppCompatActivity implements Runnable {
 
                     dodoTime += System.currentTimeMillis() - time;
                     setValState(buffer[length-1]);
+                    
 
                 }
                 if(valState >=2 && dodoTime >= dodoNeed){
@@ -213,10 +217,9 @@ public class GraphActivity extends AppCompatActivity implements Runnable {
         }
     }
 
-
+    // Met à jour la valeur State et la longueur d'onde
     public void setValState(byte ret){
 
-        ret = 25;
         String str;;
         if(ret < stateBorder[1]) {
             str = "Sommeil Profond";
@@ -235,7 +238,7 @@ public class GraphActivity extends AppCompatActivity implements Runnable {
             valState = 4;
         }
         state.setText("Etat = " + str);
-
+        data.setText((float)ret/10);
 
     }
 

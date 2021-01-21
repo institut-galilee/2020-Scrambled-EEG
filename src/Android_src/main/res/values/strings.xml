@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Scrambled-EEG</string>
+    <string name="Data">Data : 0</string>
+    <string name="State">State : 0</string>
+</resources>

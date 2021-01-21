@@ -1,5 +1,5 @@
-Auteurs :\n
-  ISSAC         Tristan,\n
+Auteurs :
+  ISSAC         Tristan,
   RAJAONARIVELO Morgan,
   MASNIKOSA     Sasha
   

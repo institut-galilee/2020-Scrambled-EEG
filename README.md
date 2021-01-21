@@ -24,4 +24,4 @@ Problème :
 
 Solution : 
     Avec un mini système eeg, capter les ondes cérébrales. 
-    Une fois que le sujet à dormi 30minutes en sommeil profond et est en phase de sommeil léger, le réveil est allumé.
+    Une fois que le sujet à dormi 30minutes en sommeil profond et est en phase de sommeil léger, le réveil est allumé. 

@@ -1,6 +1,6 @@
-Auteurs :
-  ISSAC         Tristan
-  RAJAONARIVELO Morgan
+Auteurs :\n
+  ISSAC         Tristan,\n
+  RAJAONARIVELO Morgan,
   MASNIKOSA     Sasha
   
 Arduino nano (on a dû changé dû à une casse) : [12€] 
